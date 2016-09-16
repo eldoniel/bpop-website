@@ -1,3 +1,7 @@
 bpop_website_news:
-    path:     /news
-    defaults: { _controller: BpopWebsiteBundle:News:index }
+    path:     /news/{page}
+    defaults: 
+        _controller: BpopWebsiteBundle:News:index
+        page:        1
+    requirements:
+        page: \d*

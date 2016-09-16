@@ -7,10 +7,19 @@ use Symfony\Component\HttpFoundation\Response;
 
 class NewsController extends Controller
 {
-    public function indexAction()
+    public function indexAction($page)
     {
-        $content = $this->get('templating')->render('BpopWebsiteBundle:News:index.html.twig', array('author' => 'Niko'));
+        return $this->render('BpopWebsiteBundle:News:index.html.twig', array('author' => 'Niko', 'page' => $page));
+    }
+    
+    public function upcomingAction()
+    {
+        $concert1 = "30 septembre, Nuit Killian, St Etienne";
+        $concert2 = "2 octobre, RDV Emergenza, Lyon";
         
-        return new Response($content);
+        $concerts[] = $concert1;
+        $concerts[] = $concert2;
+        
+        return $this->render('BpopWebsiteBundle:News:upcoming.html.twig', array('concerts' => $concerts));
     }
 }

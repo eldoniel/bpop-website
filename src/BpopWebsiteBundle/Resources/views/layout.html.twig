@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Bienvenue sur le site de B!pop, formation de Brütal Pop iséroise!{% endblock %}</title>
+    </head>
+    <body>
+        
+        <div>
+            <img src="{{ asset('bundles/bpopwebsite/images/bpop_logo_momentane.PNG') }}" alt="Bienvenue sur le site de B!pop !" />
+        </div>
+        <div class="menu_site">
+            <a href="#">News</a>
+            <a href="#">Music</a>
+            <a href="#">Gallery</a>
+        </div>
+        
+        {% block body %}
+        {% endblock %}
+        
+    </body>
+</html>
