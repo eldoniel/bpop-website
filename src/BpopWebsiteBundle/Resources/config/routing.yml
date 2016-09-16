@@ -1,0 +1,3 @@
+bpop_website_homepage:
+    path:     /
+    defaults: { _controller: BpopWebsiteBundle:Default:index }

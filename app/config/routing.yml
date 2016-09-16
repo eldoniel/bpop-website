@@ -1,0 +1,7 @@
+bpop_website:
+    resource: "@BpopWebsiteBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation
