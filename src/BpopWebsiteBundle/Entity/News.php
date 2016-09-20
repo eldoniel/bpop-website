@@ -2,6 +2,7 @@
 
 namespace BpopWebsiteBundle\Entity;
 
+use BpopWebsiteBundle\Entity\AdminUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,7 +37,7 @@ class News
     private $content;
     
     /**
-     * @ORM\ManyToOne(targetEntity="BpopwebsiteBundle\Entity\AdminUser")
+     * @ORM\ManyToOne(targetEntity="AdminUser")
      * @ORM\JoinColumn(nullable=false)
      */
     private $author;
@@ -49,17 +50,21 @@ class News
     private $date;
     
     /**
-     * @ORM\ManyToOne(targetEntity="BpopwebsiteBundle\Entity\AdminUser")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="AdminUser")
      */
     private $lastEditor;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="last_edited", type="datetime")
+     * @ORM\Column(name="last_edited", type="datetime", nullable=true)
      */
     private $lastEdited;
+    
+    
+    public function __construct() {
+        $this->date = new \DateTime();
+    }
 
 
     /**

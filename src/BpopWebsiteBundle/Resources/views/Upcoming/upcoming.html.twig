@@ -1,0 +1,13 @@
+<div>
+
+    <h3>Concerts à venir</h3>
+
+    <ul>
+        {% for concert in concerts %}
+            <li>{{ concert }}</li>
+        {% else %}
+            <li>Aucun concert prévu</li>
+        {% endfor %}
+    </ul>
+
+</div>

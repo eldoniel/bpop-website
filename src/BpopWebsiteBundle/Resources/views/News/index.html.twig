@@ -4,28 +4,22 @@
 
     <h1>B!pop 4ever! <3 <3 <3</h1>
 
-    <h4>Ceci est la page {{ page }} des news</h4>
-
-    <p>
-        Duis sem mi, mollis eu varius nec, tempor vitae nisi.
-        Donec pulvinar sapien enim, a molestie sem efficitur vel.
-        Duis maximus, nisi vitae laoreet cursus, quam quam efficitur lorem, id sagittis lorem ante at arcu.
-        Fusce nec viverra nibh. Sed nibh risus, pulvinar eget purus vel, condimentum tempus velit.
-        Etiam a orci eget erat venenatis posuere eget pretium mi. Cras nec dui nisl.
-        Curabitur dictum ipsum at augue interdum porttitor at id felis. In pulvinar sapien dolor, a iaculis ex placerat vel.
-        Suspendisse convallis, felis pellentesque molestie mollis, purus ex auctor lorem, in feugiat purus metus eu arcu.
-        Proin tristique metus tortor. Duis aliquet ligula ut nunc facilisis, tincidunt aliquam enim ornare.
-        Ut convallis libero ut turpis tristique, eu aliquam ex posuere. Proin rhoncus mattis ipsum, vel varius diam posuere id.
-        Aenean non mi id enim gravida sollicitudin.
-        Héhéhééhéhé. Hahahahahàhàhàhàhà. Équitation.
-    </p>
+    <h3>Ceci est la page {{ page }} des news</h3>
     
-    <div>
-        <h3>Concerts à venir</h3>
-        
-        {{ render(controller("BpopWebsiteBundle:News:upcoming")) }}
-    </div>
-
-    <span>Site sponsorisé par {{ author }}</span>
+    {{ include("BpopWebsiteBundle:News:formAddNews.html.twig") }}
+    
+    <h4>Liste des dernières nouvelles</h4>
+    
+    {% for article in news %}
+        <div class="article">
+            <h5>{{ article.title }}</h5>
+            <p>{{ article.content }}</p>
+            <span>Written by {{ article.author.login }} on {{ article.date|date('d/m/Y') }} at {{ article.date|date('H:m:s') }}</span>
+        </div>
+    {% else %}
+        <span>There is not any article</span>
+    {% endfor %}
+    
+    {{ render(controller("BpopWebsiteBundle:UpcomingDates:upcoming")) }}
 
 {% endblock %}
