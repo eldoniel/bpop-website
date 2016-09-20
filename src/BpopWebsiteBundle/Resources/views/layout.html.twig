@@ -2,6 +2,8 @@
 <html>
     <head>
         <meta charset="utf-8">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+        <script src="{{ asset('js/bootstrap.js') }}"></script>
         <title>{% block title %}Bienvenue sur le site de B!pop, formation de Brütal Pop iséroise!{% endblock %}</title>
     </head>
     <body>
@@ -9,10 +11,10 @@
         <div>
             <img src="{{ asset('bundles/bpopwebsite/images/bpop_logo_momentane.PNG') }}" alt="Bienvenue sur le site de B!pop !" />
         </div>
-        <div class="menu_site">
-            <a href="#">News</a>
-            <a href="#">Music</a>
-            <a href="#">Gallery</a>
+        <div class="menu_site col-md-12">
+            <a href="#" class="col-md-4">News</a>
+            <a href="#" class="col-md-4">Music</a>
+            <a href="#" class="col-md-4">Gallery</a>
         </div>
         
         {% block body %}
