@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="news")
  * @ORM\Entity(repositoryClass="BpopWebsiteBundle\Repository\NewsRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class News
 {
@@ -215,6 +216,14 @@ class News
     public function getLastEdited()
     {
         return $this->lastEdited;
+    }
+    
+    /**
+     * @ORM\PreUpdate
+     */
+    public function editDate()
+    {
+      $this->setLastEdited(new \DateTime());
     }
 }
 

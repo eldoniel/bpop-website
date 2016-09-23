@@ -1,0 +1,22 @@
+{% extends "BpopWebsiteBundle::layout.html.twig" %}
+
+{% block body %}
+
+    <h3>Ceci est la page d'écoute</h3>
+    
+    {{ include("BpopWebsiteBundle:Music:formAddSong.html.twig") }}
+    {#
+    {% for article in news %}
+        <div class="article">
+            <h5>{{ article.title }}</h5>
+            <p>{{ article.content }}</p>
+            <span>Written by {{ article.author.login }} on {{ article.date|date('d/m/Y') }} at {{ article.date|date('H:m:s') }}</span>
+        </div>
+    {% else %}
+        <span>There is not any article</span>
+    {% endfor %}
+    #}
+    
+    {{ render(controller("BpopWebsiteBundle:UpcomingDates:upcoming")) }}
+
+{% endblock %}

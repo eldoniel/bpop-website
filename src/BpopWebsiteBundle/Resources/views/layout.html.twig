@@ -9,11 +9,13 @@
     <body>
         
         <div>
-            <img src="{{ asset('bundles/bpopwebsite/images/bpop_logo_momentane.PNG') }}" alt="Bienvenue sur le site de B!pop !" />
+            <a href="{{ path('bpop_website_news') }}">
+                <img src="{{ asset('bundles/bpopwebsite/images/bpop_logo_momentane.PNG') }}" alt="Bienvenue sur le site de B!pop !" />
+            </a>
         </div>
         <div class="menu_site col-md-12">
-            <a href="#" class="col-md-4">News</a>
-            <a href="#" class="col-md-4">Music</a>
+            <a href="{{ path('bpop_website_news') }}" class="col-md-4">News</a>
+            <a href="{{ path('bpop_website_music') }}" class="col-md-4">Music</a>
             <a href="#" class="col-md-4">Gallery</a>
         </div>
         

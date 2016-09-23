@@ -5,3 +5,16 @@ bpop_website_news:
         page:        1
     requirements:
         page: \d*
+        
+bpop_website_music:
+    path:     /music
+    defaults:
+        _controller: BpopWebsiteBundle:Music:index
+        
+bpop_website_gallery:
+    path:     /gallery/{page}
+    defaults:
+        _controller: BpopWebsiteBundle:Gallery:index
+        page:        1
+    requirements:
+        page: \d*
