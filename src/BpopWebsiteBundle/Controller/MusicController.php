@@ -32,7 +32,7 @@ class MusicController extends Controller {
         
         $request->getSession()->getFlashBag()->add('notice', "Fichier bien ajouté");
         
-        return $this->redirectToRoute('bpop_website_news');
+        return $this->redirectToRoute('bpop_website_music');
       }
     }
     
@@ -40,7 +40,9 @@ class MusicController extends Controller {
     
     $allRecordings = $repositoryRecording->findAll();
     
-    return $this->render('BpopWebsiteBundle:Music:index.html.twig', array('recordings' => $allRecordings, 'formNew' => $form->createView()));
+    $path = $song->getUploadDir();
+    
+    return $this->render('BpopWebsiteBundle:Music:index.html.twig', array('recordings' => $allRecordings, 'formNew' => $form->createView(), 'path' => $path));
   }
 
 }

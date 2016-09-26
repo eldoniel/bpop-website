@@ -171,19 +171,19 @@ class Recording {
   }
   
   /**
-   * ORM\PrePersist()
-   * ORM\PreUpdate()
+   * @ORM\PrePersist
+   * @ORM\PreUpdate
    */
   public function preUpload() {
     if (null === $this->file) {
       return;
     }
     
-    $this->url = $this->file->guessExtension();
+    $this->url = $this->file->getClientOriginalExtension();
   }
   
   /**
-   * @ORM\PreRemove()
+   * @ORM\PreRemove
    */
   public function preRemoveUpload()
   {
@@ -191,7 +191,7 @@ class Recording {
   }
   
   /**
-   * @ORM\PostRemove()
+   * @ORM\PostRemove
    */
   public function removeUpload()
   {
@@ -200,6 +200,10 @@ class Recording {
     }
   }
 
+  /**
+   * @ORM\PostPersist
+   * @ORM\PostUpdate
+   */
   public function upload() {
     if (null === $this->file) {
       return;
@@ -226,6 +230,11 @@ class Recording {
   protected function getUploadRootDir() {
     
     return __DIR__ . '/../../../web/' . $this->getUploadDir();
+  }
+  
+  public function getWebPath()
+  {
+    return $this->getUploadDir().'/'.$this->getId().'.'.$this->getUrl();
   }
 
 }

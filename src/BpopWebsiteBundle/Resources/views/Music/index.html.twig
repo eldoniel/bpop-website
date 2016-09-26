@@ -5,17 +5,17 @@
     <h3>Ceci est la page d'écoute</h3>
     
     {{ include("BpopWebsiteBundle:Music:formAddSong.html.twig") }}
-    {#
-    {% for article in news %}
-        <div class="article">
-            <h5>{{ article.title }}</h5>
-            <p>{{ article.content }}</p>
-            <span>Written by {{ article.author.login }} on {{ article.date|date('d/m/Y') }} at {{ article.date|date('H:m:s') }}</span>
+    
+    {% for record in recordings %}
+        <div class="record">
+            <h5>{{ record.title }}</h5>
+            <audio controls>
+                <source src="{{ asset(record.webPath) }}" type="audio/mp3">
+            </audio>
         </div>
     {% else %}
-        <span>There is not any article</span>
+        <span>There is not any record</span>
     {% endfor %}
-    #}
     
     {{ render(controller("BpopWebsiteBundle:UpcomingDates:upcoming")) }}
 
