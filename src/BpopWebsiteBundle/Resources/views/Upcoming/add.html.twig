@@ -1,0 +1,24 @@
+{% extends "BpopWebsiteBundle::layout.html.twig" %}
+
+{% block body %}
+    <div class="panel panel-default">
+        <div class="panel-heading">Ajouter un concert</div>
+
+        <div class="panel-body">
+            <div class="panel panel-default">
+                <div class="panel-heading">Concerts déjà ajoutés:</div>
+                <div class="panel-body">
+                    {% for show in shows %}
+                        <div class="panel panel-default">
+                            <div class="list-group-item">{{ show.name }}, {{ show.location }}, {{ show.date|date('d/m/Y') }}</div>
+                        </div>
+                    {% else %}
+                        <span>There is not any article</span>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {{ include("BpopWebsiteBundle:Upcoming:formAddShow.html.twig") }}
+        </div>
+    </div>
+{% endblock %}

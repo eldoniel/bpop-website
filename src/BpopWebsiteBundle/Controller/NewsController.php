@@ -48,5 +48,4 @@ class NewsController extends Controller {
 
     return $this->render('BpopWebsiteBundle:News:index.html.twig', array('news' => $allNews, 'page' => $page, 'formNew' => $form->createView()));
   }
-
 }

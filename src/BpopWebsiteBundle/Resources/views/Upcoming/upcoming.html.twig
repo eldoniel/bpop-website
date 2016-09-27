@@ -1,10 +1,17 @@
 <div class="panel panel-default">
     <div class="panel-heading">Concerts à venir</div>
     <div class="list-group">
-        {% for concert in concerts %}
-            <div class="list-group-item">{{ concert }}</div>
+        {% for show in shows %}
+            <div class="list-group-item">
+                {% if show.name %}
+                    {{ show.name }},
+                {% endif %}
+                {{ show.location }},
+                {{ show.date|date('d/m/Y') }}
+            </div>
         {% else %}
             <div class="list-group-item">Aucun concert prévu</div>
         {% endfor %}
+        <a href="{{ path('bpop_website_add_show') }}" class="list-group-item list-group-item-info"><i class="fa fa-plus"></i> Nouveau concert</a>
     </div>
 </div>
