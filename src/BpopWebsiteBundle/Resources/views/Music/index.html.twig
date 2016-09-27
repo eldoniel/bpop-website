@@ -1,22 +1,24 @@
 {% extends "BpopWebsiteBundle::layout.html.twig" %}
 
 {% block body %}
+    <div class="panel panel-default">
+        <div class="panel-heading">Ecouter B!pop</div>
+        <div class="panel-body">
+            {{ include("BpopWebsiteBundle:Music:formAddSong.html.twig") }}
 
-    <h3>Ceci est la page d'écoute</h3>
-    
-    {{ include("BpopWebsiteBundle:Music:formAddSong.html.twig") }}
-    
-    {% for record in recordings %}
-        <div class="record">
-            <h5>{{ record.title }}</h5>
-            <audio controls>
-                <source src="{{ asset(record.webPath) }}" type="audio/mp3">
-            </audio>
+            {% for record in recordings %}
+                <div class="record panel panel-default">
+                    <div class="panel-heading">Never Shout Last</div>
+                    <div class="panel-body">
+                        <h5>{{ record.title }}</h5>
+                        <audio controls >
+                            <source src="{{ asset(record.webPath) }}" type="audio/mp3">
+                        </audio>
+                    </div>
+                </div>
+            {% else %}
+                <span>There is not any record</span>
+            {% endfor %}
         </div>
-    {% else %}
-        <span>There is not any record</span>
-    {% endfor %}
-    
-    {{ render(controller("BpopWebsiteBundle:UpcomingDates:upcoming")) }}
-
+    </div>
 {% endblock %}

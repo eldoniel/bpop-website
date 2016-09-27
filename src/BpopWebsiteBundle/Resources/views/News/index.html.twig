@@ -1,25 +1,21 @@
 {% extends "BpopWebsiteBundle::layout.html.twig" %}
 
 {% block body %}
+    <div class="panel panel-default">
+        <div class="panel-heading">News</div>
 
-    <h1>B!pop 4ever! <3 <3 <3</h1>
+        <div class="panel-body">
+            {{ include("BpopWebsiteBundle:News:formAddNews.html.twig") }}
 
-    <h3>Ceci est la page {{ page }} des news</h3>
-    
-    {{ include("BpopWebsiteBundle:News:formAddNews.html.twig") }}
-    
-    <h4>Liste des dernières nouvelles</h4>
-    
-    {% for article in news %}
-        <div class="article">
-            <h5>{{ article.title }}</h5>
-            <p>{{ article.content }}</p>
-            <span>Written by {{ article.author.login }} on {{ article.date|date('d/m/Y') }} at {{ article.date|date('H:m:s') }}</span>
+            {% for article in news %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">{{ article.title }}</div>
+                    <div class="panel-body">{{ article.content }}</div>
+                    <div class="panel-footer">Par {{ article.author.login }}, le {{ article.date|date('d/m/Y') }} à {{ article.date|date('H:m') }}</div>
+                </div>
+            {% else %}
+                <span>There is not any article</span>
+            {% endfor %}
         </div>
-    {% else %}
-        <span>There is not any article</span>
-    {% endfor %}
-    
-    {{ render(controller("BpopWebsiteBundle:UpcomingDates:upcoming")) }}
-
+    </div>
 {% endblock %}

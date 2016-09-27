@@ -1,13 +1,10 @@
-<div>
-
-    <h3>Concerts à venir</h3>
-
-    <ul>
+<div class="panel panel-default">
+    <div class="panel-heading">Concerts à venir</div>
+    <div class="list-group">
         {% for concert in concerts %}
-            <li>{{ concert }}</li>
+            <div class="list-group-item">{{ concert }}</div>
         {% else %}
-            <li>Aucun concert prévu</li>
+            <div class="list-group-item">Aucun concert prévu</div>
         {% endfor %}
-    </ul>
-
+    </div>
 </div>

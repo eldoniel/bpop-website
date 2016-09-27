@@ -8,7 +8,7 @@ class UpcomingDatesController extends Controller {
 
   public function upcomingAction() {
     $concert1 = "30 septembre, Nuit Killian, St Etienne";
-    $concert2 = "2 octobre, RDV Emergenza, Lyon";
+    $concert2 = "15 octobre, Fréquence Café, Grenoble";
 
     $concerts[] = $concert1;
     $concerts[] = $concert2;
